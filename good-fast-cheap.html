@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>good-fast-cheap</title>
+    <style type="text/css">
+        .container{
+            width : 500px;
+            margin : auto;
+            text-align : center;
+        }
+        .switch{
+            position : relative;
+            display : inline-block;
+            width: 60px;
+            height: 34px;
+            margin: 20px;
+        }
+        .switch input {display:none;}
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+        .slider:before {
+            position: absolute;
+            content: "";
+            height: 26px;
+            width: 26px;
+            left: 4px;
+            bottom: 4px;
+            background-color: white;
+            -webkit-transition: .4s;
+            transition: .4s;
+        }
+        input:checked + .slider {
+            background-color: #2196F3;
+        }
+        input:focus + .slider {
+            box-shadow: 0 0 1px #2196F3;
+        }
+
+        input:checked + .slider:before {
+            -webkit-transform: translateX(26px);
+            -ms-transform: translateX(26px);
+            transform: translateX(26px);
+        }
+        .slider.round {
+            border-radius: 34px;
+        }
+
+        .slider.round:before {
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <span class="container">
+    <label class="switch">
+        <input type="checkbox" id="good" onclick="thaydoi1()">
+        <span class="slider round"></span><br>
+        <span><h2>Good</h2></span>
+    </label>
+    </span>
+    <span class="container">
+    <label class="switch">
+        <input type="checkbox" id="cheap" onclick="thaydoi3()">
+        <span class="slider round"></span><br>
+        <span><h2>Cheap</h2></span>
+    </label>
+    </span>
+    <span class="container">
+    <label class="switch">
+        <input type="checkbox" id="fast" onclick="thaydoi2()">
+        <span class="slider round"></span><br>
+        <span><h2>Fast</h2></span>
+    </label>
+    </span>
+</div>
+    <script>
+        function thaydoi2() {
+            if (document.getElementById("fast").checked) {
+                if (document.getElementById("good").checked) {
+                    document.getElementById("cheap").checked = false;
+                } else if (document.getElementById("cheap").checked) {
+                    document.getElementById("good").checked = false;
+                }
+            }
+        }
+        function thaydoi3() {
+            if (document.getElementById("cheap").checked){
+                if(document.getElementById("fast").checked){
+                    document.getElementById("good").checked = false;
+                }else if(document.getElementById("good").checked){
+                    document.getElementById("fast").checked = false;
+                }
+            }
+        }
+        function thaydoi1() {
+            if (document.getElementById("good").checked){
+                if(document.getElementById("cheap").checked){
+                    document.getElementById("fast").checked = false;
+                }else if(document.getElementById("fast").checked){
+                    document.getElementById("cheap").checked = false;
+                }
+            }
+        }
+
+
+    </script>
+</body>
+</html>
